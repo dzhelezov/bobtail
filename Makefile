@@ -22,19 +22,19 @@ codegen:
 	@npx sqd codegen
 
 
-typegen: kusamaVersions.json
+typegen: calamariVersions.json
 	@npx squid-substrate-typegen typegen.json
 
 
-kusamaVersions.json:
+calamariVersions.json:
 	@make explore
 
 
 explore:
 	@npx squid-substrate-metadata-explorer \
-		--chain wss://kusama-rpc.polkadot.io \
-		--archive https://kusama.indexer.gc.subsquid.io/v4/graphql \
-		--out kusamaVersions.json
+		--chain wss://ws.calamari.systems \
+		--archive https://calamari.indexer.gc.subsquid.io/v4/graphql \
+		--out calamariVersions.json
 
 
 up:

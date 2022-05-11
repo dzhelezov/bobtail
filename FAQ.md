@@ -133,7 +133,7 @@ Once the exploration is done, you should define all events and calls of interest
 npx squid-substrate-typegen typegen.json
 ```
 
-A type-safe definition for each and every version of the event will be generated. Most of the times, one should be able to infer a normalized interface together with some glue code to make it fit the runtime specific versions. For example, for Kusama `balances.Transfer` event, `squid-substrate-typegen` generated three slightly different versions that can be reconciled as follows:
+A type-safe definition for each and every version of the event will be generated. Most of the times, one should be able to infer a normalized interface together with some glue code to make it fit the runtime specific versions. For example, for calamari `balances.Transfer` event, `squid-substrate-typegen` generated three slightly different versions that can be reconciled as follows:
 
 ```typescript
 /**

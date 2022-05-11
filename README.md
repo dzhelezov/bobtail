@@ -1,7 +1,7 @@
 # Squid template project
 
 A starter [Squid](https://subsquid.io) project to demonstrate its structure and conventions.
-It accumulates [kusama](https://kusama.network) account balances and serves them via GraphQL API. For a full reference of Subsquid features consult [Docs](https://docs.subsquid.io) and [FAQ](./FAQ.md).
+It accumulates [calamari](https://calamari.network) account balances and serves them via GraphQL API. For a full reference of Subsquid features consult [Docs](https://docs.subsquid.io) and [FAQ](./FAQ.md).
 
 ## Summary
 
@@ -175,13 +175,13 @@ fetch corresponding metadata.
 
 ```bash
 npx squid-substrate-metadata-explorer \
-  --chain wss://kusama-rpc.polkadot.io \
-  --archive https://kusama.indexer.gc.subsquid.io/v4/graphql \
-  --out kusamaVersions.json
+  --chain wss://ws.calamari.systems \
+  --archive https://calamari.indexer.gc.subsquid.io/v4/graphql \
+  --out calamariVersions.json
 ```
 
 In the above command `--archive` parameter is optional, but it speeds up the process
-significantly. From scratch exploration of kusama network without archive takes 20-30 minutes.
+significantly. From scratch exploration of calamari network without archive takes 20-30 minutes.
 
 You can pass the result of previous exploration to `--out` parameter. In that case exploration will
 start from the last known block and thus will take much less time.
@@ -198,8 +198,8 @@ Where `typegen.json` config file has the following structure:
 ```json5
 {
   "outDir": "src/types",
-  "chainVersions": "kusamaVersions.json", // the result of chain exploration
-  "typesBundle": "kusama", // see types bundle section below
+  "chainVersions": "calamariVersions.json", // the result of chain exploration
+  "typesBundle": "calamari", // see types bundle section below
   "events": [ // list of events to generate
     "balances.Transfer"
   ],
@@ -242,7 +242,7 @@ information to decode their data. For those chains external
 
 Type definitions (`typesBundle`) can be given to squid tools in two forms:
 
-1. as a name of a known chain (currently only `kusama`)
+1. as a name of a known chain (currently only `calamari`)
 2. as a json file of a structure described below.
 
 ```json5

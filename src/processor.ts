@@ -8,19 +8,23 @@ import { lookupArchive } from "@subsquid/archive-registry";
 import { Account, HistoricalBalance } from "./model";
 import { BalancesTransferEvent } from "./types/events";
 
-const processor = new SubstrateProcessor("kusama_balances");
+const processor = new SubstrateProcessor("calamari_balances");
 
 processor.setBatchSize(500);
 processor.setDataSource({
-  archive: lookupArchive("kusama")[0].url,
-  chain: "wss://kusama-rpc.polkadot.io",
+  archive: lookupArchive(
+    "calamari",
+    undefined,
+    "0x4ac80c99289841dd946ef92765bf659a307d39189b3ce374a92b5f0415ee17a1"
+  )[0].url,
+  chain: "wss://ws.calamari.systems",
 });
 
 processor.addEventHandler("balances.Transfer", async (ctx) => {
   const transfer = getTransferEvent(ctx);
   const tip = ctx.extrinsic?.tip || 0n;
-  const from = ss58.codec("kusama").encode(transfer.from);
-  const to = ss58.codec("kusama").encode(transfer.to);
+  const from = ss58.codec("calamari").encode(transfer.from);
+  const to = ss58.codec("calamari").encode(transfer.to);
 
   const fromAcc = await getOrCreate(ctx.store, Account, from);
   fromAcc.balance = fromAcc.balance || 0n;
