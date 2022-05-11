@@ -8,7 +8,7 @@ import { lookupArchive } from "@subsquid/archive-registry";
 import { Account, HistoricalBalance } from "./model";
 import { BalancesTransferEvent } from "./types/events";
 
-const processor = new SubstrateProcessor("calamari_balances");
+const processor = new SubstrateProcessor("bobtail");
 
 processor.setBatchSize(500);
 processor.setDataSource({

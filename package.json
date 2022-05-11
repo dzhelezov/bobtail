@@ -1,5 +1,5 @@
 {
-  "name": "calamari-balances",
+  "name": "bobtail",
   "private": true,
   "scripts": {
     "build": "rm -rf lib && tsc",
