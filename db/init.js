@@ -7,7 +7,7 @@ const ormconfig = {
   migrations: [__dirname + '/migrations/*.js'],
   synchronize: false,
   migrationsRun: false,
-  dropSchema: false,
+  dropSchema: true,
   logging: ["query", "error", "schema"],
   host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,

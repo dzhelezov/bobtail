@@ -1,9 +1,25 @@
 {
   "outDir": "src/types",
-  "chainVersions": "calamariVersions.json",
+  "chainVersions": "src/metadata/calamari/versions.json",
   "typesBundle": "calamari",
   "events": [
     "balances.Transfer"
+    "democracy.Proposed",
+    "democracy.Started",
+    "technicalCommittee.Proposed",
+    "technicalCommittee.Voted",
+    "technicalCommittee.Approved",
+    "technicalCommittee.Disapproved",
+    "technicalCommittee.Executed",
+    "technicalCommittee.MemberExecuted",
+    "technicalCommittee.Closed"
   ],
-  "calls": []
+  "calls": [
+    "council.vote",
+    "democracy.second",
+    "democracy.vote"
+  ],
+  "storage": [
+    "Session.CurrentIndex"
+  ]
 }
